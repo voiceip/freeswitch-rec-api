@@ -1,0 +1,14 @@
+Description=FreeSwitch Recorder API
+
+[Service]
+ExecStart=/bin/sh -c '/usr/local/bin/fs-rec-api 2>&1 > /var/log/fs-rec-api/app.log'
+Type=simple
+User=root
+Restart=on-failure
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=fs-rec-api
+
+[Install]
+WantedBy=multi-user.target
